@@ -4,7 +4,12 @@ public class Estoque {
     private String id;
     private String nome;
     private int quantidade;
-    private int valorminimo;
+    private int valorMinimo;
+    private String idLaboratorio;
+
+    public String getIdLaboratorio() { return idLaboratorio; }
+
+    public void setIdLaboratorio(String idLaboratorio) {this.idLaboratorio = idLaboratorio;}
 
     public String getId() {
         return id;
@@ -23,14 +28,12 @@ public class Estoque {
     }
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
-
     }
     public int getValorMinimo() {
-        return  valorminimo;
+        return  valorMinimo;
     }
     public void setValorMinimo(int valorminimo) {
-        this.valorminimo = valorminimo;
-
+        this.valorMinimo = valorminimo;
     }
     public Estoque() {
     }

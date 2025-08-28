@@ -18,12 +18,13 @@ public class EstoqueDAO  {
     }
 
     public String inserir(Estoque estoque) {
-        String sql = "inst into ddd_estoque(id,nome,quantidade,valorminimo) VALUES (?,?,?,?)";
+        String sql = "inst into ESTOQUE(id_insumo,nome_insumo,quantidade_insumo,quantidade_minima,id_laboratorio) VALUES (?,?,?,?,?)";
         try (PreparedStatement ps = getCon().prepareStatement(sql);) {
             ps.setString(1, estoque.getId());
             ps.setString(2, estoque.getNome());
             ps.setInt(3, estoque.getQuantidade());
             ps.setInt(4, estoque.getValorMinimo());
+            ps.setString(5, estoque.getIdLaboratorio());
             if (ps.executeUpdate() > 0) {
                 return "Insumo inserido com sucesso!";
             } else {
