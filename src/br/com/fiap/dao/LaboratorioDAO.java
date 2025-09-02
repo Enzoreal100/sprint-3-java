@@ -45,7 +45,7 @@ public class LaboratorioDAO  {
                     laboratorio.setId(rs.getString("ID_LABORATORIO"));
                     laboratorio.setEndereco(rs.getString("ENDERECO_LABORATORIO"));
                     laboratorio.setNome(rs.getString("NOME_LABORATORIO"));
-                    laboratorios.add(laboratorio);
+                    laboratorios.add(i, laboratorio);
                     i++;
                 }
             }
