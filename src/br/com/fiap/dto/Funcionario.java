@@ -3,7 +3,7 @@ package br.com.fiap.dto;
 public class Funcionario {
     private String id;
     private String nome;
-    private String cargo;
+    private int cargo;
     private int laboratorio;
 
     public String  getId() {
@@ -18,10 +18,10 @@ public class Funcionario {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    public String getCargo() {
+    public int getCargo() {
         return cargo;
     }
-    public void setCargo(String cargo) {
+    public void setCargo(int cargo) {
         this.cargo = cargo;
 
     }
