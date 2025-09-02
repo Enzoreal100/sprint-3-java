@@ -10,10 +10,11 @@ public class testeCreate_Funcionario {
         Connection con = ConnectionFactory.abrirConexao();
         Funcionario funcionario = new Funcionario();
         funcionario.setNome("Astrogildo");
-        funcionario.setCargo("Enfermeiro");
+        funcionario.setCargo(1);
         funcionario.setLaboratorio(1);
         FuncionarioDAO funcionarioDAO = new FuncionarioDAO(con);
         System.out.println(funcionarioDAO.inserir(funcionario));
         ConnectionFactory.fecharConexao(con);
     }
 }
+ 

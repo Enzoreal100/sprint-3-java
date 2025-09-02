@@ -22,7 +22,7 @@ public class FuncionarioDAO  {
         String sql = "insert into FUNCIONARIO(NOME_FUNCIONARIO,CARGO_FUNCIONARIO,LABORATORIO_FUNCIONARIO) VALUES (?,?,?)";
         try (PreparedStatement ps = getCon().prepareStatement(sql);) {
             ps.setString(1, funcionario.getNome());
-            ps.setString(2, funcionario.getCargo());
+            ps.setInt(2, funcionario.getCargo());
             ps.setInt(3, funcionario.getLaboratorio());
             if (ps.executeUpdate() > 0) {
                 return "Funcionario inserido com sucesso!";
@@ -44,7 +44,7 @@ public class FuncionarioDAO  {
                     Funcionario funcionario = new Funcionario();
                     funcionario.setId(rs.getString("id"));
                     funcionario.setNome(rs.getString("nome"));
-                    funcionario.setCargo(rs.getString("cargo"));
+                    funcionario.setCargo(rs.getInt("cargo"));
                     funcionario.setLaboratorio(rs.getInt("laboratorio"));
                     funcionarios[i] = funcionario;
                     i++;
