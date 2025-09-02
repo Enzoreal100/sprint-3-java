@@ -4,7 +4,7 @@ public class Funcionario {
     private String id;
     private String nome;
     private String cargo;
-    private String laboratorio;
+    private int laboratorio;
 
     public String  getId() {
         return id;
@@ -25,10 +25,10 @@ public class Funcionario {
         this.cargo = cargo;
 
     }
-    public String getLaboratorio() {
-        return  laboratorio;
+    public int getLaboratorio() {
+        return laboratorio;
     }
-    public void setLaboratorio(String laboratorio) {
+    public void setLaboratorio(int laboratorio) {
         this.laboratorio = laboratorio;
 
     }

@@ -15,7 +15,7 @@ public class Laboratorio {
         return endereco;
     }
     public void setEndereco(String endereco) {
-        this.nome = nome;
+        this.endereco = endereco;
     }
     public String getNome() {
         return nome;

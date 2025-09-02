@@ -7,15 +7,13 @@ import java.sql.Connection;
 
 public class testeCreate_Funcionario {
     public static void main(String[] args){
-    Connection con = ConnectionFactory.abrirConexao();
-    Funcionario funcionario = new Funcionario();
-    funcionario.setNome("Fulano");
-    funcionario.setCargo("Maquinista");
-    funcionario.setId("1");
-    funcionario.setLaboratorio("Maquinidos");
-    FuncionarioDAO funcionarioDAO = new FuncionarioDAO(con);
-    System.out.println(funcionarioDAO.inserir(funcionario));
-    ConnectionFactory.fecharConexao(con);
-
+        Connection con = ConnectionFactory.abrirConexao();
+        Funcionario funcionario = new Funcionario();
+        funcionario.setNome("Astrogildo");
+        funcionario.setCargo("Enfermeiro");
+        funcionario.setLaboratorio(1);
+        FuncionarioDAO funcionarioDAO = new FuncionarioDAO(con);
+        System.out.println(funcionarioDAO.inserir(funcionario));
+        ConnectionFactory.fecharConexao(con);
     }
 }

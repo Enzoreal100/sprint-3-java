@@ -17,7 +17,7 @@ public class CargoDao  {
     }
 
     public String inserir(Cargo cargo) {
-        String sql = "inst into ddd_cargo(cargo) VALUES (?)";
+        String sql = "insert into CARGO(NOME_CARGO) VALUES (?)";
         try (PreparedStatement ps = getCon().prepareStatement(sql);) {
             ps.setString(1, cargo.getNome());
             if (ps.executeUpdate() > 0) {
