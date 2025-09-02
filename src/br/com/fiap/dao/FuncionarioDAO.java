@@ -24,6 +24,7 @@ public class FuncionarioDAO  {
         try (PreparedStatement ps = getCon().prepareStatement(sql);) {
             ps.setString(1, funcionario.getNome());
             ps.setInt(2, funcionario.getCargo());
+            ps.setInt(2, funcionario.getCargo());
             ps.setInt(3, funcionario.getLaboratorio());
             if (ps.executeUpdate() > 0) {
                 return "Funcionario inserido com sucesso!";
