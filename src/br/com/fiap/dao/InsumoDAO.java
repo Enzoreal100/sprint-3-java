@@ -59,7 +59,7 @@ public class InsumoDAO  {
     }
 
     public Insumo pegarUmPorId(int id) {
-        String sql = "SELECT * FROM FUNCIONARIO WHERE ID_FUNCIONARIO = (?)";
+        String sql = "SELECT * FROM ESTOQUE WHERE ID_INSUMO = (?)";
         Insumo found = null;
         try (PreparedStatement ps = getCon().prepareStatement(sql)){
             ps.setInt(1, id);
