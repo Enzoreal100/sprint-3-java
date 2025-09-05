@@ -1,15 +1,15 @@
 package br.com.fiap.dto;
 
 public class Funcionario {
-    private String id;
+    private int id;
     private String nome;
     private int cargo;
     private int laboratorio;
 
-    public String  getId() {
+    public int  getId() {
         return id;
     }
-    public void setId(String id ) {
+    public void setId(int id ) {
         this.id = id;
     }
     public String getNome() {

@@ -16,14 +16,22 @@ public class testeCreate_Funcionario {
         // FuncionarioDAO funcionarioDAO = new FuncionarioDAO(con);
         // System.out.println(funcionarioDAO.inserir(funcionario));
         FuncionarioDAO DAO = new FuncionarioDAO(con);
-        ArrayList<Funcionario> lista;
-        lista = DAO.listarTodos();
-        for (Funcionario func : lista) {
-            System.out.println("ID: " + func.getId());
-            System.out.println("Nome: " + func.getNome());
-            System.out.println("Cargo: " + func.getCargo());
-            System.out.println("Laboratorio: " + func.getLaboratorio());
-            System.out.println("-------------------------");
+//        ArrayList<Funcionario> lista;
+//        lista = DAO.listarTodos();
+//        for (Funcionario func : lista) {
+//            System.out.println("ID: " + func.getId());
+//            System.out.println("Nome: " + func.getNome());
+//            System.out.println("Cargo: " + func.getCargo());
+//            System.out.println("Laboratorio: " + func.getLaboratorio());
+//            System.out.println("-------------------------");
+//        }
+        Funcionario funcionario;
+        funcionario = DAO.pegarUmPorId(1);
+        if (funcionario == null) {
+            System.out.println("Usuário não encontrado!");
+        }
+        else {
+            System.out.printf("ID: %d\nNOME: %s\nCARGO: %d\nLAB: %d\n", funcionario.getId(), funcionario.getNome(), funcionario.getCargo(), funcionario.getLaboratorio());
         }
         ConnectionFactory.fecharConexao(con);
     }

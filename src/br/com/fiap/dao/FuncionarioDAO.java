@@ -44,7 +44,7 @@ public class FuncionarioDAO  {
                 int i = 0;
                 while (rs.next()) {
                     Funcionario funcionario = new Funcionario();
-                    funcionario.setId(rs.getString("ID_FUNCIONARIO"));
+                    funcionario.setId(rs.getInt("ID_FUNCIONARIO"));
                     funcionario.setNome(rs.getString("NOME_FUNCIONARIO"));
                     funcionario.setCargo(rs.getInt("CARGO_FUNCIONARIO"));
                     funcionario.setLaboratorio(rs.getInt("LABORATORIO_FUNCIONARIO"));
@@ -56,5 +56,29 @@ public class FuncionarioDAO  {
             e.printStackTrace();
         }
         return funcionarios;
+    }
+
+    public Funcionario pegarUmPorId(int id) {
+        String sql = "SELECT * FROM FUNCIONARIO WHERE ID_FUNCIONARIO = (?)";
+        Funcionario found = null;
+        try (PreparedStatement ps = getCon().prepareStatement(sql)){
+            ps.setInt(1, id);
+            try (java.sql.ResultSet rs = ps.executeQuery()) {
+                if (!rs.next()) {
+                    throw new RuntimeException();
+                }
+                found = new Funcionario();
+                found.setId(rs.getInt("ID_FUNCIONARIO"));
+                found.setNome(rs.getString("NOME_FUNCIONARIO"));
+                found.setCargo(rs.getInt("CARGO_FUNCIONARIO"));
+                found.setLaboratorio(rs.getInt("LABORATORIO_FUNCIONARIO"));
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+        }
+        return found;
     }
 }
