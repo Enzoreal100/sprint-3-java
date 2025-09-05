@@ -9,15 +9,15 @@ import java.util.ArrayList;
 public class testeCreate_Estoque {
     public static void main(String[] args) {
         Connection con = ConnectionFactory.abrirConexao();
-        // Insumo insumo = new Insumo();
-        // insumo.setQuantidade(40);
-        // insumo.setNome("Caixa de agulhas 100pc");
-        // insumo.setValorMinimo(4);
-        // insumo.setIdLaboratorio(1);
+//        Insumo insumo = new Insumo();
+//        insumo.setQuantidade(90);
+//        insumo.setNome("Caixa de agulhas 50pc");
+//        insumo.setValorMinimo(10);
+//        insumo.setIdLaboratorio(2);
         InsumoDAO DAO = new InsumoDAO(con);
-        // System.out.println(DAO.inserir(insumo));
+//         System.out.println(DAO.inserir(insumo));
         ArrayList<Insumo> lista;
-        lista = DAO.listarTodos();
+        lista = DAO.listarTodos(2);
         for (Insumo insumo : lista) {
             System.out.println("ID: " + insumo.getId());
             System.out.println("Nome: " + insumo.getNome());
