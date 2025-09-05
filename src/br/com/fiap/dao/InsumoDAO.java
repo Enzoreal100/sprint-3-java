@@ -1,5 +1,6 @@
 package br.com.fiap.dao;
 
+import br.com.fiap.dto.Funcionario;
 import br.com.fiap.dto.Insumo;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -56,4 +57,29 @@ public class InsumoDAO  {
         }
         return estoque;
     }
+
+    public Insumo pegarUmPorId(int id) {
+        String sql = "SELECT * FROM FUNCIONARIO WHERE ID_FUNCIONARIO = (?)";
+        Insumo found = null;
+        try (PreparedStatement ps = getCon().prepareStatement(sql)){
+            ps.setInt(1, id);
+            try (java.sql.ResultSet rs = ps.executeQuery()) {
+                if (!rs.next()) {
+                    throw new RuntimeException();
+                }
+                found = new Insumo();
+                found.setId(rs.getInt("ID_INSUMO"));
+                found.setNome(rs.getString("NOME_INSUMO"));
+                found.setQuantidade(rs.getInt("QUANTIDADE_INSUMO"));
+                found.setValorMinimo(rs.getInt("QUANTIDADE_MINIMA"));
+                found.setIdLaboratorio(rs.getInt("ID_LABORATORIO"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+        }
+        return found;
+    }
+
 }
