@@ -34,10 +34,11 @@ public class InsumoDAO  {
         }
     }
 
-    public ArrayList<Insumo> listarTodos(){
-        String sql = "SELECT * FROM ESTOQUE";
+    public ArrayList<Insumo> listarTodos(int idLab){
+        String sql = "SELECT * FROM ESTOQUE WHERE ID_LABORATORIO = ?";
         ArrayList<Insumo> estoque = new ArrayList<>();
         try (PreparedStatement ps = getCon().prepareStatement(sql)) {
+            ps.setInt(1, idLab);
             try (java.sql.ResultSet rs = ps.executeQuery()) {
                 int i = 0;
                 while (rs.next()) {
